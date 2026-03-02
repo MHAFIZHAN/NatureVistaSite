@@ -8,15 +8,13 @@
     <!-- Bootstrap CSS (CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Custom CSS -->
+    <!-- Custom CSS: Loaded after Bootstrap to override default styles (Cascading) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- ============================================ -->
-    <!-- NAVIGATION (COMMON AREA)                     -->
-    <!-- ============================================ -->
-    <!-- NOTE: This is shared code. Do not edit unless agreed upon by the team. -->
+    <!-- Navigation Section (Hafizhan) -->
+    <!-- Related CSS: body (style.css line 13 - Global Font) -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
             <div class="container">
@@ -28,6 +26,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#attractions">Attractions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -36,52 +35,245 @@
     </header>
 
     <main>
-        <!-- ============================================ -->
-        <!-- MEMBER 1: HOMEPAGE SECTION                   -->
-        <!-- Responsibility: Hero section, Intro, Image   -->
-        <!-- ============================================ -->
-<section id="home"> <!-- TODO (Member 1): 1. Create a Hero Section with a welcome message. 2. Add a featured image. 3. Use Bootstrap Grid (row/col) to align text and image. --> <header id="home" class="hero d-flex align-items-center text-center text-white" style="background: url('https://images8.alphacoders.com/569/thumb-1920-569822.jpg') no-repeat center center/cover; height: 70vh;"> <div class="container"> <h1 class="display-4 fw-bold">Welcome to NatureVista Park</h1> <p class="lead">Experience the perfect blend of mountain views and lakeside tranquility at NatureVista</p> </div> </header> </section>
+        <!-- Hero Section (Khai) -->
+        <!-- Related CSS: .hero (style.css lines 24-28), .hero h1 (style.css line 30) -->
+        <section id="home">
+            <header id="home" class="hero d-flex align-items-center text-center text-white" style="background: url('https://images8.alphacoders.com/569/thumb-1920-569822.jpg') no-repeat center center/cover; height: 70vh;">
+                <div class="container">
+                    <h1 class="display-4 fw-bold">Welcome to NatureVista Park</h1>
+                    <p class="lead">Experience the perfect blend of mountain views and lakeside tranquility at NatureVista</p>
+                </div>
+            </header>
+        </section>
 
-        <!-- ============================================ -->
-        <!-- MEMBER 2: ATTRACTIONS SECTION                -->
-        <!-- Responsibility: Cards/Table, Facilities      -->
-        <!-- ============================================ -->
-        <section id="attractions" class="bg-light">
-            <div class="container py-5">
-                <!-- 
-                    TODO (Member 2): 
-                    1. Create a section title (e.g., "Main Attractions").
-                    2. Use Bootstrap Cards to display at least 3 attractions.
-                    3. Create a Table to list facilities and hours.
-                -->
-                <div class="alert alert-warning text-center">
-                    🚧 Member 2: Your content goes here (Attractions & Cards)
+        <!-- Attractions Section (Fayyadh) -->
+        <!-- Related CSS: .card (style.css line 39), .card:hover (style.css line 43) -->
+        <section id="attractions" class="bg-light py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Main Attractions</h2>
+                
+                <div class="row g-4">
+                    <!-- Banff National Park Card -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow">
+                            <img src="https://assets3.thrillist.com/v1/image/3135936/2880x1620/crop;webp=auto;jpeg_quality=60;progressive.jpg" class="card-img-top" alt="Canada">
+                            <div class="card-body">
+                                <h5 class="card-title">Banff National Park, Canada</h5>
+                                <p class="card-text">Banff is arguably the most famous mountain park in the world, known for its surreal turquoise lakes and jagged peaks.</p>
+                                <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#canadaModal">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hallstatt Austria Card -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow">
+                            <img src="https://i0.wp.com/www.thepostcardtraveler.com/wp-content/uploads/2020/01/DSC_0691.jpg?w=800&ssl=1" class="card-img-top" alt="Austria">
+                            <div class="card-body">
+                                <h5 class="card-title">Hallstatt, Austria</h5>
+                                <p class="card-text">A UNESCO World Heritage site, Hallstatt is a tiny village wedged between the Dachstein Mountains and the glassy Hallstättersee lake.</p>
+                                <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#austriaModal">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Torres del Paine Card -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow">
+                            <img src="https://www.cascada.travel/hs-fs/hubfs/french%20valley-1.jpg?width=1199&name=french%20valley-1.jpg" class="card-img-top" alt="Chile">
+                            <div class="card-body">
+                                <h5 class="card-title">Torres del Paine, Chile</h5>
+                                <p class="card-text">For a "Wild Edge" vibe, this park in the heart of Patagonia is unmatched. It features jagged granite towers and massive blue glaciers.</p>
+                                <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#chileModal">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modals -->
+                
+                <!-- Canada Modal -->
+                <div class="modal fade" id="canadaModal" tabindex="-1" aria-labelledby="canadaModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="canadaModalLabel">Banff National Park, Canada</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="https://assets3.thrillist.com/v1/image/3135936/2880x1620/crop;webp=auto;jpeg_quality=60;progressive.jpg" class="img-fluid mb-3" alt="Canada">
+                                <h3>Activities</h3>
+                                <ul>
+                                    <li>Hiking the Plain of Six Glaciers</li>
+                                    <li>Canoeing on Lake Louise</li>
+                                    <li>Soaking in the Upper Hot Springs.</li>
+                                </ul>
+                                <h3>Facilities</h3>
+                                <ul>
+                                    <li><b>Fairmont Chateau Lake Louise:</b> A historic luxury hotel right on the water.</li>
+                                    <li><b>Banff Townsite:</b> A full-service mountain town.</li>
+                                    <li><b>Shuttle Systems:</b> Reliable transit to popular lakes.</li>
+                                </ul>
+                                <h3>Key Landmarks</h3>
+                                <ul>
+                                    <li><b>Lake Louise:</b> The "Crown Jewel" with its emerald water.</li>
+                                    <li><b>Moraine Lake:</b> Famous for the "Twenty Dollar View".</li>
+                                    <li><b>Sulphur Mountain:</b> Reachable via the Banff Gondola.</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Austria Modal -->
+                <div class="modal fade" id="austriaModal" tabindex="-1" aria-labelledby="austriaModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="austriaModalLabel">Hallstatt, Austria</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="https://i0.wp.com/www.thepostcardtraveler.com/wp-content/uploads/2020/01/DSC_0691.jpg?w=800&ssl=1" class="img-fluid mb-3" alt="Austria">
+                                <h3>Activities</h3>
+                                <ul>
+                                    <li>Rent an electric "swan" boat.</li>
+                                    <li>Hike the Echerntal trail.</li>
+                                    <li>Explore the Giant Ice Caves.</li>
+                                </ul>
+                                <h3>Facilities</h3>
+                                <ul>
+                                    <li><b>Funicular:</b> Easy access to the salt mines.</li>
+                                    <li><b>Heritage Hotels:</b> Traditional boutique hotels.</li>
+                                </ul>
+                                <h3>Key Landmarks</h3>
+                                <ul>
+                                    <li><b>Skywalk World Heritage View:</b> 360-degree vistas.</li>
+                                    <li><b>Salzwelten Hallstatt:</b> World’s oldest salt mine.</li>
+                                    <li><b>Hallstatt Ossuary:</b> Unique 12th-century chapel.</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chile Modal -->
+                <div class="modal fade" id="chileModal" tabindex="-1" aria-labelledby="chileModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="chileModalLabel">Torres del Paine, Chile</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="https://www.cascada.travel/hs-fs/hubfs/french%20valley-1.jpg?width=1199&name=french%20valley-1.jpg" class="img-fluid mb-3" alt="Chile">
+                                <h3>Activities</h3>
+                                <ul>
+                                    <li>Trekking the famous "W Circuit".</li>
+                                    <li>Boat tours to the glaciers.</li>
+                                    <li>Wildlife safaris.</li>
+                                </ul>
+                                <h3>Facilities</h3>
+                                <ul>
+                                    <li><b>Luxury Eco-Camps:</b> High-end "glamping" domes.</li>
+                                    <li><b>Refugios:</b> Mountain hostels along trails.</li>
+                                    <li><b>Catamaran Services:</b> Boat transport.</li>
+                                </ul>
+                                <h3>Key Landmarks</h3>
+                                <ul>
+                                    <li><b>Las Torres:</b> Three massive granite peaks.</li>
+                                    <li><b>Grey Glacier:</b> Massive wall of blue ice.</li>
+                                    <li><b>Cuernos del Paine:</b> "The Horns".</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============================================ -->
-        <!-- MEMBER 3: CONTACT SECTION                    -->
-        <!-- Responsibility: Form, Validation             -->
-        <!-- ============================================ -->
-        <section id="contact">
-            <div class="container py-5">
-                <!-- 
-                    TODO (Member 3): 
-                    1. Create a Contact Form (Name, Email, Message).
-                    2. Use Bootstrap form classes (form-control, form-label).
-                    3. Add a Submit button.
-                -->
-                <div class="alert alert-success text-center">
-                    🚧 Member 3: Your content goes here (Contact Form)
+        <!-- Facilities Section (Hafizhan) -->
+        <!-- Related CSS: .table-custom thead (style.css line 49) -->
+        <section id="facilities" class="bg-white py-5">
+            <div class="container">
+                <!-- Facilities & Hours Table -->
+                <div class="mt-5">
+                    <h3 class="text-center mb-4">Park Facilities & Hours</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-custom shadow-sm bg-white">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Facility</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Operating Hours</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Visitor Center</td>
+                                    <td>Main Entrance</td>
+                                    <td>8:00 AM - 6:00 PM</td>
+                                    <td><span class="badge bg-success">Open</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Lake View Cafe</td>
+                                    <td>North Shore</td>
+                                    <td>9:00 AM - 8:00 PM</td>
+                                    <td><span class="badge bg-success">Open</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mountain Gear Rental</td>
+                                    <td>Base Camp</td>
+                                    <td>7:00 AM - 5:00 PM</td>
+                                    <td><span class="badge bg-warning text-dark">Closing Soon</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (Vishal) -->
+        <!-- Related CSS: .form-control:focus (style.css line 61) -->
+        <section id="contact" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-4">Contact Us</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                            <button class="btn btn-dark w-100">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ============================================ -->
-    <!-- FOOTER (COMMON AREA)                         -->
-    <!-- ============================================ -->
+    <!-- Footer Section (Hafizhan) -->
+    <!-- Related CSS: body (style.css line 13 - Global Font) -->
     <footer class="mt-auto">
         <div class="container text-center py-3 bg-dark text-white">
             <p class="mb-0">&copy; 2024 NatureVista Park. All rights reserved.</p>
